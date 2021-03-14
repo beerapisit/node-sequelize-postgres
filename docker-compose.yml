@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+  backend:
+    image: beerapisit/node-sequelize-postgres:latest
+    build: .
+    restart: on-failure
+    ports:
+      - 3000:3000
+    environment:
+      - DB_USERNAME=admin
+      - DB_PASSWORD=password
+      - DB_NAME=testdb
+      - DB_HOSTNAME=localhost
+    volumes:
+      - ./:/apps/
